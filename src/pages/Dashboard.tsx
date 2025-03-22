@@ -96,7 +96,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="flex items-center gap-4 self-end md:self-auto">
               <div className="relative">
-                <Button size="icon" variant="outline">
+                <Button variant="outline">
                   <Bell size={18} />
                 </Button>
                 <span className="absolute top-0 right-0 w-2 h-2 rounded-full bg-finance-red"></span>

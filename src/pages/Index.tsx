@@ -91,13 +91,13 @@ const Index: React.FC = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/auth?type=signup">
-                  <Button size="lg" className="group">
+                  <Button className="group">
                     Get Started
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/dashboard">
-                  <Button size="lg" variant="outline">
+                  <Button className="outline">
                     View Demo
                   </Button>
                 </Link>
@@ -247,12 +247,12 @@ const Index: React.FC = () => {
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/auth?type=signup">
-                    <Button size="lg" className="min-w-40">
+                    <Button className="min-w-40 text-lg py-2 px-4">
                       Get Started Free
                     </Button>
                   </Link>
                   <Link to="/dashboard">
-                    <Button size="lg" variant="outline" className="min-w-40">
+                    <Button className="min-w-40 text-lg py-2 px-4 border border-gray-300">
                       Explore Demo
                     </Button>
                   </Link>
