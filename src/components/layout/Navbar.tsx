@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import path from "path";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +29,11 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: "Home", path: "/" },
-    { name: "Dashboard", path: "/dashboard" },
+    { name: "Dashboard", path: "/dashboard"},
+    { name: "Taxation", path: "/taxation" },
+    { name: "AI Advisor", path: "/ai-advisor" },
+    {name: "News", path: "/news"},
+     
   ];
 
   const isActive = (path: string) => {
@@ -43,7 +48,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
-          <span className="font-bold text-2xl text-primary">FinSight</span>
+          <span className="font-bold text-2xl text-primary">myRupee</span>
         </Link>
 
         {/* Desktop Navigation */}

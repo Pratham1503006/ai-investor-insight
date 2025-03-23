@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="inline-block font-bold text-2xl text-primary mb-4">
-              FinSight
+              myRupee
             </Link>
             <p className="text-muted-foreground text-sm mb-6 max-w-xs">
               AI-powered insights to help retail investors make informed financial decisions.
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
         
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} FinSight. All rights reserved.
+            © {currentYear} myRupee. All rights reserved.
           </p>
           <div className="mt-4 md:mt-0 flex gap-4">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
