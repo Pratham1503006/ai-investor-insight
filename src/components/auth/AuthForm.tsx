@@ -1,5 +1,6 @@
-
-import React, { useState } from "react";
+import { auth } from './config.js';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,6 +31,7 @@ const AuthForm: React.FC = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [username, setUserName] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -45,17 +47,18 @@ const AuthForm: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Success
-      toast.success(
-        isLogin
-          ? "Successfully logged in!"
-          : "Account created successfully! Redirecting to dashboard."
-      );
+      if (isLogin) {
+        // Login user
+        await signInWithEmailAndPassword(auth, formValues.email, formValues.password);
+        toast.success("Successfully logged in!");
+      } else {
+        // Create new user
+        await createUserWithEmailAndPassword(auth, formValues.email, formValues.password);
+        toast.success("Account created successfully!");
+      }
       navigate("/dashboard");
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Error:", error.message);
       toast.error(
         isLogin
           ? "Invalid credentials. Please try again."
@@ -63,6 +66,17 @@ const AuthForm: React.FC = () => {
       );
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      toast.success("Successfully logged out!");
+      navigate("/auth?type=login");
+    } catch (error: any) {
+      console.error("Error:", error.message);
+      toast.error("Error logging out. Please try again.");
     }
   };
 
